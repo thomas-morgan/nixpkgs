@@ -11853,6 +11853,8 @@ let
     inherit (xlibs) libX11 xproto libXpm libXt;
   };
 
+  xtris = callPackage ../games/xtris { };
+
   zdoom = callPackage ../games/zdoom { };
 
   zod = callPackage ../games/zod { };
