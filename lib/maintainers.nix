@@ -115,6 +115,7 @@
   nckx = "Tobias Geerinckx-Rice <tobias.geerinckx.rice@gmail.com>";
   notthemessiah = "Brian Cohen <brian.cohen.88@gmail.com>";
   nslqqq = "Nikita Mikhailov <nslqqq@gmail.com>";
+  obadz = "obadz <dav-nixos@odav.org>";
   ocharles = "Oliver Charles <ollie@ocharles.org.uk>";
   offline = "Jaka Hudoklin <jakahudoklin@gmail.com>";
   olcai = "Erik Timan <dev@timan.info>";
