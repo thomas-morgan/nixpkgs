@@ -9445,6 +9445,8 @@ let
 
     bbdbVcardExport = callPackage ../applications/editors/emacs-modes/bbdb-vcard-export { };
 
+    bongo = callPackage ../applications/editors/emacs-modes/bongo { };
+
     cedet = callPackage ../applications/editors/emacs-modes/cedet { };
 
     calfw = callPackage ../applications/editors/emacs-modes/calfw { };
