@@ -9533,6 +9533,8 @@ let
 
     org2blog = callPackage ../applications/editors/emacs-modes/org2blog { };
 
+    orgPlayer = callPackage ../applications/editors/emacs-modes/org-player { };
+
     pcache = callPackage ../applications/editors/emacs-modes/pcache { };
 
     phpMode = callPackage ../applications/editors/emacs-modes/php { };
