@@ -1066,7 +1066,9 @@ let
 
   ebook_tools = callPackage ../tools/text/ebook-tools { };
 
-  ecryptfs = callPackage ../tools/security/ecryptfs { };
+  ecryptfs = callPackage ../tools/security/ecryptfs {
+    setuid = config.ecryptfs.setuid or false;
+  };
 
   editres = callPackage ../tools/graphics/editres {
     inherit (xlibs) libXt libXaw;
