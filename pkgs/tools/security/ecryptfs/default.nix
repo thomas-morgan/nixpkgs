@@ -1,5 +1,6 @@
 { stdenv, fetchurl, pkgconfig, perl, keyutils, nss, nspr, python, pam
-, intltool, makeWrapper, coreutils, gettext, cryptsetup, lvm2, rsync, which }:
+, intltool, makeWrapper, coreutils, gettext, cryptsetup, lvm2, rsync, which
+, utillinux }:
 
 stdenv.mkDerivation {
   name = "ecryptfs-104";
@@ -15,6 +16,10 @@ stdenv.mkDerivation {
   postInstall = ''
     FILES="$(grep -r '/bin/sh' $out/bin | sed 's,:.*,,' | uniq)"
     for file in $FILES; do
+  postPatch = ''
+    sed -i "s,\(/bin/u\?mount\),${utillinux}\1," src/utils/*.c
+  '';
+
       sed -i $file -e "s,\(/sbin/u\?mount.ecryptfs\(_private\)\?\),$out\1," \
         -e "s,\(/sbin/cryptsetup\),${cryptsetup}\1," \
         -e "s,\(/sbin/dmsetup\),${lvm2}\1," \
