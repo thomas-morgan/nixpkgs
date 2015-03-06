@@ -9467,6 +9467,8 @@ let
 
     # ecb = callPackage ../applications/editors/emacs-modes/ecb { };
 
+    dictem = callPackage ../applications/editors/emacs-modes/dictem { };
+
     emacsClangCompleteAsync = callPackage ../applications/editors/emacs-modes/emacs-clang-complete-async { };
 
     emacsSessionManagement = callPackage ../applications/editors/emacs-modes/session-management-for-emacs { };
