@@ -294,6 +294,10 @@ in
           "--enable-xcsecurity"         # enable SECURITY extension
           "--with-default-font-path="   # there were only paths containing "${prefix}",
                                         # and there are no fonts in this package anyway
+          "--localstatedir=/var"
+          "--with-xkb-bin-directory=/run/current-system/sw/bin"
+          "--with-xkb-path=/etc/X11/xkb"
+          "--with-xkb-output=/tmp/X11-xkb-compiled"
         ];
         postInstall = ''
           rm -fr $out/share/X11/xkb/compiled
