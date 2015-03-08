@@ -60,7 +60,7 @@ let
 
       alias_maps = hash:/var/postfix/conf/aliases
 
-      mail_spool_directory = /var/spool/mail/
+      mail_spool_directory = ${cfg.mailSpool}
 
       setgid_group = ${setgidGroup}
     ''
@@ -167,6 +167,14 @@ in
       group = mkOption {
         default = "postfix";
         description = "What to call the Postfix group (must be used only for postfix).";
+      };
+
+      mailSpool = mkOption {
+        default = "/var/spool/mail/";
+        description = "
+          Where to keep local mailboxes.
+          If this string ends with /, use maildir-style delivery.
+        ";
       };
 
       setgidGroup = mkOption {
