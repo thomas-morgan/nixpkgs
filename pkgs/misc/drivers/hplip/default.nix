@@ -5,11 +5,11 @@
 }:
 
 stdenv.mkDerivation rec {
-  name = "hplip-3.14.4";
+  name = "hplip-3.15.2";
 
   src = fetchurl {
     url = "mirror://sourceforge/hplip/${name}.tar.gz";
-    sha256 = "1j8h44f8igl95wqypj4rk9awcw513hlps980jmcnkx60xghc4l6f";
+    sha256 = "0z7n62vdbr0p0kls1m2sr3nhvkhx3rawcbzd0zdl0lnq8fkyq0jz";
   };
 
   plugin = fetchurl {
