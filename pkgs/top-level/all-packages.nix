@@ -8888,6 +8888,8 @@ let
 
   cm_unicode = callPackage ../data/fonts/cm-unicode {};
 
+  culmus = callPackage ../data/fonts/culmus { };
+
   dejavu_fonts = callPackage ../data/fonts/dejavu-fonts {
     inherit (perlPackages) FontTTF;
   };
