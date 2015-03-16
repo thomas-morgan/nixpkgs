@@ -9000,11 +9000,11 @@ let
 
   poppler_data = callPackage ../data/misc/poppler-data { };
 
-  r3rs = callPackage ../data/documentation/rnrs/r3rs.nix { };
+  r3rs = callPackage ../data/documentation/rnrs/r3rs.nix { texinfo = texinfo4; };
 
-  r4rs = callPackage ../data/documentation/rnrs/r4rs.nix { };
+  r4rs = callPackage ../data/documentation/rnrs/r4rs.nix { texinfo = texinfo4; };
 
-  r5rs = callPackage ../data/documentation/rnrs/r5rs.nix { };
+  r5rs = callPackage ../data/documentation/rnrs/r5rs.nix { texinfo = texinfo4; };
 
   hasklig = callPackage ../data/fonts/hasklig {};
 
