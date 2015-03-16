@@ -77,7 +77,6 @@
   ./security/apparmor-suid.nix
   ./security/ca.nix
   ./security/duosec.nix
-  ./security/ecryptfs.nix
   ./security/grsecurity.nix
   ./security/pam.nix
   ./security/pam_usb.nix

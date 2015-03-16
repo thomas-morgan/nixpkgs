@@ -1,11 +1,8 @@
 { stdenv, fetchurl, pkgconfig, perl, keyutils, nss, nspr, python, pam
 , intltool, makeWrapper, coreutils, gettext, cryptsetup, lvm2, rsync, which
-, utillinux, setuid }:
+, utillinux }:
 
-let
-  maybeSetuidWrappers = if setuid then "/var/setuid-wrappers" else "$out/sbin";
-
-in stdenv.mkDerivation {
+stdenv.mkDerivation {
   name = "ecryptfs-104";
 
   src = fetchurl {
@@ -16,16 +13,14 @@ in stdenv.mkDerivation {
   buildInputs = [ pkgconfig perl nss nspr python pam intltool makeWrapper ];
   propagatedBuildInputs = [ coreutils gettext cryptsetup lvm2 rsync keyutils which ];
 
+  postInstall = ''
+    FILES="$(grep -r '/bin/sh' $out/bin | sed 's,:.*,,' | uniq)"
+    for file in $FILES; do
   postPatch = ''
     sed -i "s,\(/bin/u\?mount\),${utillinux}\1," src/utils/*.c
   '';
 
-  postInstall = ''
-    FILES="$(grep -r '/bin/sh' $out/bin | sed 's,:.*,,' | uniq)"
-    for file in $FILES; do
-      sed -i $file \
-        -e "s,/sbin/\(u\?mount.ecryptfs_private\),${maybeSetuidWrappers}/\1," \
-        -e "s,\(/sbin/u\?mount.ecryptfs[^_]\),$out\1," \
+      sed -i $file -e "s,\(/sbin/u\?mount.ecryptfs\(_private\)\?\),$out\1," \
         -e "s,\(/sbin/cryptsetup\),${cryptsetup}\1," \
         -e "s,\(/sbin/dmsetup\),${lvm2}\1," \
         -e 's,/sbin/\(unix_chkpwd\),\1,'

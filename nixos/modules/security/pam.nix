@@ -190,9 +190,7 @@ let
           ${optionalString cfg.usbAuth
               "auth sufficient ${pkgs.pam_usb}/lib/security/pam_usb.so"}
           ${optionalString cfg.unixAuth
-              "auth required pam_unix.so ${optionalString cfg.allowNullPassword "nullok"} likeauth"}
-          ${optionalString config.security.ecryptfs.enable
-              "auth optional ${pkgs.ecryptfs}/lib/security/pam_ecryptfs.so unwrap"}
+              "auth sufficient pam_unix.so ${optionalString cfg.allowNullPassword "nullok"} likeauth"}
           ${optionalString cfg.otpwAuth
               "auth sufficient ${pkgs.otpw}/lib/security/pam_otpw.so"}
           ${optionalString cfg.oathAuth
@@ -204,11 +202,9 @@ let
             auth [default=die success=done] ${pam_ccreds}/lib/security/pam_ccreds.so action=validate use_first_pass
             auth sufficient ${pam_ccreds}/lib/security/pam_ccreds.so action=store use_first_pass
           ''}
-          auth required   pam_permit.so
+          auth required   pam_deny.so
 
           # Password management.
-          ${optionalString config.security.ecryptfs.enable
-              "password optional ${pkgs.ecryptfs}/lib/security/pam_ecryptfs.so"}
           password requisite pam_unix.so nullok sha512
           ${optionalString config.users.ldap.enable
               "password sufficient ${pam_ldap}/lib/security/pam_ldap.so"}
@@ -220,8 +216,6 @@ let
           # Session management.
           session required pam_env.so envfile=${config.system.build.pamEnvironment}
           session required pam_unix.so
-          ${optionalString config.security.ecryptfs.enable
-              "session optional ${pkgs.ecryptfs}/lib/security/pam_ecryptfs.so"}
           ${optionalString cfg.setLoginUid
               "session ${
                 if config.boot.isContainer then "optional" else "required"
