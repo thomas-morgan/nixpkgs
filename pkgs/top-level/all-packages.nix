@@ -8942,6 +8942,8 @@ let
 
   junicode = callPackage ../data/fonts/junicode { };
 
+  kanji-stroke-orders = callPackage ../data/fonts/kanji-stroke-orders { };
+
   kochi-substitute = callPackage ../data/fonts/kochi-substitute {};
 
   kochi-substitute-naga10 = callPackage ../data/fonts/kochi-substitute-naga10 {};
