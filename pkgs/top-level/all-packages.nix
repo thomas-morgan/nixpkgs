@@ -8924,6 +8924,8 @@ let
 
   fira = callPackage ../data/fonts/fira { };
 
+  fonts_tlwg = callPackage ../data/fonts/fonts-tlwg { };
+
   freefont_ttf = callPackage ../data/fonts/freefont-ttf { };
 
   freepats = callPackage ../data/misc/freepats { };
