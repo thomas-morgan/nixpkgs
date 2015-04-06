@@ -4,8 +4,8 @@ stdenv.mkDerivation {
   name = "ipafont-003.03";
 
   src = fetchurl {
-    url = "http://ipafont.ipa.go.jp/ipafont/IPAfont00303.php";
-    sha256 = "f755ed79a4b8e715bed2f05a189172138aedf93db0f465b4e20c344a02766fe5";
+    url = "http://dl.sourceforge.jp/ipafonts/51868/IPAfont00303.zip";
+    sha256 = "1rbgfq14ld0cwas6bx5h7pwyv2hkfa8ihnphsaz1brxqliwysmgp";
   };
 
   buildInputs = [ unzip ];
