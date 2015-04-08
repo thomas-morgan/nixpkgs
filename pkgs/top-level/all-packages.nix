@@ -5784,6 +5784,7 @@ let
 
   libdwg = callPackage ../development/libraries/libdwg { };
 
+  libdvdcss12 = callPackage ../development/libraries/libdvdcss/1.2.nix { };
   libdvdcss = callPackage ../development/libraries/libdvdcss { };
 
   libdvdnav = callPackage ../development/libraries/libdvdnav { };
@@ -7186,6 +7187,7 @@ let
 
   xineLib = callPackage ../development/libraries/xine-lib {
     ffmpeg = ffmpeg_1;
+    libdvdcss = libdvdcss12;
   };
 
   xautolock = callPackage ../misc/screensavers/xautolock { };
