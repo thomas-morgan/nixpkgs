@@ -6499,11 +6499,11 @@ let
 
   pelican = buildPythonPackage rec {
     name = "pelican-${version}";
-    version = "3.4.0";
+    version = "3.5.0";
 
     src = pkgs.fetchurl {
       url = "https://pypi.python.org/packages/source/p/pelican/${name}.tar.gz";
-      md5 = "8e57bdd075503903125b14621b1e533d";
+      sha256 = "0dl8i26sa20iijlg3z9gxn3p6f1d9v44b9742929xfaqwj4amvdp";
     };
 
     preConfigure = ''
@@ -6515,13 +6515,16 @@ let
     #buildInputs = [nose mock];
     doCheck = false;
 
-    propagatedBuildInputs = with self; [jinja2 pygments docutils pytz unidecode six dateutil feedgenerator blinker pillow beautifulsoup4];
+    propagatedBuildInputs = with self; [
+      jinja2 pygments docutils pytz unidecode six dateutil feedgenerator
+      blinker pillow beautifulsoup4 markupsafe
+    ];
 
     meta = {
       homepage = http://getpelican.com/;
       description = "A tool to generate a static blog from reStructuredText or Markdown input files";
       license = licenses.agpl3;
-      maintainers = [ stdenv.lib.maintainers.offline ];
+      maintainers = with stdenv.lib.maintainers; [ offline prikhi ];
     };
   };
 
@@ -8350,13 +8353,13 @@ let
   };
 
   robotframework = buildPythonPackage rec {
-    version = "2.8.6";
+    version = "2.8.7";
     name = "robotframework-${version}";
     disabled = isPy3k;
 
     src = pkgs.fetchurl {
       url = "https://pypi.python.org/packages/source/r/robotframework/${name}.tar.gz";
-      sha256 = "0hl44pwfkagr5272s90y0bkfllj0q1l4yw4rvkdrc6ikn6l61d9v";
+      sha256 = "0mfd0s989j3jrpl8q0lb4wsjy1x280chfr9r74m2dyi9c7rxzc58";
     };
 
     # error: invalid command 'test'

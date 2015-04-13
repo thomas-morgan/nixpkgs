@@ -60,10 +60,10 @@ rec {
   };
 
   grsecurity_stable = grsecPatch
-    { kversion  = "3.14.35";
-      revision  = "201503071140";
+    { kversion  = "3.14.37";
+      revision  = "201503270048";
       branch    = "stable";
-      sha256    = "076kmzyrmg8g82xhaccysdgblfkdd21rfn8wvdpf6kxavg8xn855";
+      sha256    = "1ryxh89m392mwqlwqiy3jszyhq9cxmvkv320di7hi50aqx8k2lqf";
     };
 
   grsecurity_unstable = grsecPatch
@@ -82,4 +82,5 @@ rec {
     { name = "crc-backport-regression";
       patch = ./crc-regression.patch;
     };
+
 }
